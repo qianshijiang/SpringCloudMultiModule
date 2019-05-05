@@ -1,0 +1,30 @@
+############################################################################
+######################         eureka 注册中心                         #######################
+############################################################################
+
+spring:
+  application:
+    name: EurekaServer
+
+server:
+  port: 8101
+#  port: ${PORT:${SERVER_PORT:0}}
+
+security:
+  basic:
+    enabled: true # 启用认证
+  user:
+    name: lishangzhi
+    password: 123456
+    
+
+eureka:  
+  instance: 
+    hostname: localhost
+  client: 
+    registerWithEureka: false
+    fetchRegistry: false   
+    serviceUrl: 
+      defaultZone: http://lishangzhi:123456@localhost:8101/eureka/
+
+    

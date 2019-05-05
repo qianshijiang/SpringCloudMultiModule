@@ -1,0 +1,44 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.cn</groupId>
+	<artifactId>SpringCloudMultiModule</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>micro-eureka-server</module> <!--服务注册中心-->
+		<module>micro-loadbalanced-example</module> <!--服务分发（负载均衡）-->
+		<module>micro-service-example</module> <!--服务消费(模拟服务)-->
+		<module>micro-hystrix-example</module> <!--服务分发（负载均衡)[断路器\服务消费+（Hystrix)+(Hystrix 仪表盘)]-->
+		<module>micro-route-zuul</module> <!--路由网关(zuul)-->
+	</modules>
+
+	<parent>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-parent</artifactId>
+		<version>Dalston.SR2</version>
+		<relativePath />
+	</parent>
+
+	<!-- 公共属性定义 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

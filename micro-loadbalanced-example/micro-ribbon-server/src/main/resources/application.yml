@@ -1,0 +1,20 @@
+############################################################################
+######################         Ribbon                #######################
+############################################################################
+
+spring:
+  application:
+    name: ClientRibbon       
+    
+server:
+  port: 8301
+#  port: ${PORT:${SERVER_PORT:0}}    
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://lishangzhi:123456@localhost:8101/eureka  #注册 中心已经开启认证
+  instance:
+    prefer-ip-address: true
+    instanceId: ${spring.application.name}:${server.port}   
+ 
